@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>mtn.activities.database</groupId>
+  <artifactId>scheduler</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <modules>
+    <module>lib</module>
+    <module>models</module>
+    <module>services</module>
+    <module>api</module>
+  </modules>
+
+  <properties>
+    <maven.compiler.source>15</maven.compiler.source>
+    <maven.compiler.target>15</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <kumuluzee.version>3.12.2</kumuluzee.version>
+    <kumuluzee-rest.version>1.5.1</kumuluzee-rest.version>
+
+    <postgresql.version>42.3.0</postgresql.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.kumuluz.ee</groupId>
+        <artifactId>kumuluzee-bom</artifactId>
+        <version>${kumuluzee.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.rest</groupId>
+        <artifactId>kumuluzee-rest-core</artifactId>
+        <version>${kumuluzee-rest.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgresql.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>mtn.activities.database</groupId>
+        <artifactId>scheduler-lib</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mtn.activities.database</groupId>
+        <artifactId>scheduler-models</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mtn.activities.database</groupId>
+        <artifactId>scheduler-services</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mtn.activities.database</groupId>
+        <artifactId>scheduler-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>
