@@ -17,9 +17,9 @@ spec:
           name: scheduler-deployment
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://abul.db.elephantsql.com:5432/wvtspbbe
+              value: jdbc:postgresql://abul.db.elephantsql.com:5432/ffkdpqay
             - name: KUMULUZEE_DATASOURCES0_USERNAME
-              value: wvtspbbe
+              value: ffkdpqay
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
               valueFrom:
                 secretKeyRef:
