@@ -10,7 +10,7 @@ kumuluzee:
   datasources:
     - jndi-name: jdbc/SchedulerDS
       connection-url: jdbc:postgresql://abul.db.elephantsql.com:5432/ffkdpqay
-      username: dbuser
+      username: ffkdpqay
       password: postgres
 
 rest-properties:
