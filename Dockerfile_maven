@@ -8,4 +8,4 @@ RUN mkdir /app
 WORKDIR /app
 COPY --from=build ./app/api/target/scheduler-api-1.0-SNAPSHOT.jar /app
 EXPOSE 8080
-CMD ["java", "-jar", "planner-api-1.0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "scheduler-api-1.0-SNAPSHOT.jar"]
