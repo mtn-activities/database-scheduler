@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scheduler-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scheduler-deployment
+  template:
+    metadata:
+      labels:
+        app: scheduler-deployment
+    spec:
+      containers:
+        - image: mikethenut/database-scheduler:latest
+          name: scheduler-deployment
+          env:
+            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+              value: jdbc:postgresql://abul.db.elephantsql.com:5432/wvtspbbe
+            - name: KUMULUZEE_DATASOURCES0_USERNAME
+              value: wvtspbbe
+            - name: KUMULUZEE_DATASOURCES0_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: schedulerpass
+                  key: KUMULUZEE_DATASOURCES0_PASSWORD
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: scheduler-deployment
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: scheduler-deployment
