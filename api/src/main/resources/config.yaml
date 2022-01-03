@@ -9,7 +9,7 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/SchedulerDS
-      connection-url: jdbc:postgresql://pg-scheduler:5432/scheduler
+      connection-url: jdbc:postgresql://abul.db.elephantsql.com:5432/ffkdpqay
       username: dbuser
       password: postgres
 
